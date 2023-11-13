@@ -1,0 +1,33 @@
+.list__product {   
+      button {
+      width: 95% !important;
+      background-color: #ffd814;
+      border: none;
+      color: black;
+      margin-bottom: 0.5rem;
+      -webkit-box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+      -moz-box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+      box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+    }  
+  
+    img {    
+      aspect-ratio: 1/1.5;
+      border-radius: 0.5rem;
+      object-fit: cover;
+      object-position: center center;
+    }
+  
+    h5 {        
+      text-transform: uppercase;
+      font-size: 0.8rem;    
+    }    
+  
+    .price {      
+      h6 {        
+      font-weight: 800;        
+      color: #fd384f;
+      }
+    }
+  
+  }
+  

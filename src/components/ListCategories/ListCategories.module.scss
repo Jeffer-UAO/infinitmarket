@@ -1,0 +1,50 @@
+.content {
+  padding: 1rem;
+  margin: 1rem 0 5rem 0;
+  background-color: rgb(255, 255, 255);
+
+  h1 {
+    text-align: center;
+    margin: 1rem;
+  }
+
+  h4 {
+    margin-bottom: 1rem;
+  }
+
+  .list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    text-align: center;
+
+    .card {
+      border-radius: 0.5rem;
+      -webkit-box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+      -moz-box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+      box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+
+      .category {
+        padding: 0.3rem;
+        h6 {
+          color: rgb(182, 46, 9);
+        }
+      }
+    }
+
+    h2 {
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: 1rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      // resize: both;
+    }
+    img {
+      object-fit: cover;
+      object-position: center center;
+      border-radius: 8px;
+      aspect-ratio: 1/1.5;
+    }
+  }
+}
