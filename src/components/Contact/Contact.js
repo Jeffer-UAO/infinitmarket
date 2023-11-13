@@ -5,13 +5,13 @@ export function Contact() {
   return (
     <>
       <div className={styles.container}>
-        {/* <h1>DISTRIBUIDORA DUQUE</h1>
-        <div className={styles.phone}>
+         <h1>INFINIT MARKET</h1>
+        {/* <div className={styles.phone}>
         <h5>Líneas de atención</h5>
         <ul>
         <li>(+57) 315 428 0399</li>
          
-        </ul> */}
+        </ul> */} 
       </div>
 
       {/* <div className={styles.adress}>

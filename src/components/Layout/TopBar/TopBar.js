@@ -6,6 +6,7 @@ export function TopBar() {
   return (
     <div className={styles.topBarComponent}>
       <div className={styles.topBar}>
+        <p>INFINIT MARKET</p>
         {/* <Link href="/">
           <CardImg src="/image/logo.webp" alt="No hay logo" />{" "}
         </Link>        */}
