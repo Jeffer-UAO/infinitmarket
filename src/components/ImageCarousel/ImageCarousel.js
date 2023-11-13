@@ -18,7 +18,9 @@ export function ImageCarousel(props) {
       <Carousel
         infiniteLoop={true}
         showThumbs={true}
-        preventMovementUntilSwipeScrollTolerance={true}
+        preventMovementUntilSwipeScrollTolerance={true}     
+        dynamicHeight={true}
+        showStatus={false}
       >
         {gallery &&
           gallery.length > 0 &&
@@ -28,7 +30,7 @@ export function ImageCarousel(props) {
                 <ReactPlayer
                   url={item.video_url}
                   width="100%"
-                  height="90%"
+                  height="100%"
                   controls={true}
                 />
               ) : item.image ? (
