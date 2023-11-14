@@ -1,7 +1,6 @@
 .content {
   padding: 1rem;
   margin: 1rem 0 5rem 0;
-  background-color: rgb(255, 255, 255);
 
   h1 {
     text-align: center;
@@ -44,7 +43,8 @@
       object-fit: cover;
       object-position: center center;
       border-radius: 8px;
-      aspect-ratio: 1/1.5;
+      max-width: 180px;
+    
     }
   }
 }

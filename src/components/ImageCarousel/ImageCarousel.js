@@ -2,7 +2,6 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import { BASE_NAME } from "@/config/constants";
 import ReactPlayer from "react-player";
-import { map } from "lodash";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -10,8 +9,7 @@ import styles from "./ImageCarousel.module.scss";
 import { CardImg } from "reactstrap";
 
 export function ImageCarousel(props) {
-  const { gallery } = props;
- 
+  const { gallery } = props; 
 
   return (
     <div className={styles.content}>
@@ -29,8 +27,8 @@ export function ImageCarousel(props) {
               {item.video_url ? (
                 <ReactPlayer
                   url={item.video_url}
-                  width="100%"
-                  height="100%"
+                  width={'100%'}
+                  height={'100%'}
                   controls={true}
                 />
               ) : item.image ? (

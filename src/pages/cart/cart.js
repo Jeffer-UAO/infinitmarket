@@ -90,7 +90,8 @@ export default function CartPage() {
   }, [product]);
 
   return (
-    <div>
+    <BasicLayout>
+      <Redes />
       {load ? (
         <h1>Cargando ...</h1>
       ) : (
@@ -105,7 +106,7 @@ export default function CartPage() {
         </>
       )}
       <FooterCart product={newProduct} />
-    </div>
+    </BasicLayout>
   );
 }
 
