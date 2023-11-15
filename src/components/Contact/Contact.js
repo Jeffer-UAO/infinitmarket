@@ -5,7 +5,7 @@ export function Contact() {
   return (
     <>
       <div className={styles.container}>
-         <h1>INFINIT MARKET</h1>
+         <h1>INFINITY MARKET</h1>
         {/* <div className={styles.phone}>
         <h5>Líneas de atención</h5>
         <ul>

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { map } from "lodash";
+import { map, size } from "lodash";
 import { BASE_NAME } from "@/config/constants";
 import { useWhatsApp, useGallery, useCart } from "@/hooks";
 import { toast } from "react-toastify";
 
 import { ImageCarousel } from "../ImageCarousel";
-
 
 import {
   CardImg,
@@ -43,12 +42,12 @@ export function DetailProduct(props) {
   };
 
   useEffect(() => {
-    getGalleryByCode(productData);   
+    getGalleryByCode(productData.codigo);
   }, []);
 
   const changeDetail = (data) => {
     setProductData(data);
-    getGalleryByCode(data);  
+    getGalleryByCode(data.codigo);
     window.scrollTo(0, 0);
   };
 
@@ -114,32 +113,44 @@ export function DetailProduct(props) {
       <>
         <div className={styles.detailProduct}>
           <div className={styles.product} id="seccion-1">
-            <ImageCarousel gallery={gallery} />          
+            {size(gallery) > 0 ? (
+              <ImageCarousel images={gallery} />
+            ) : productData.images ? (
+              <CardImg
+                alt="Card image cap"
+                src={BASE_NAME + productData.images}
+              />
+            ) : (
+              <CardImg
+                alt="Card image cap"
+                src={productData.image_alterna}
+              />
+            )}
 
             <div className={styles.description}>
               <CardTitle className={styles.title}>
                 <h5 className={styles.name_extend}>
-                  {productData?.name_extend}
+                  {productData.name_extend}
                 </h5>
                 <div className={styles.price}>
-                  {productData?.price1 > 1 && (
-                    <h5>$ {format(productData?.price1)} </h5>
+                  {productData.price1 > 1 && (
+                    <h5>$ {format(productData.price1)} </h5>
                   )}
-                  {productData?.price2 > 1 && <h5></h5>}
+                  {productData.price2 > 1 && <h5></h5>}
                 </div>
               </CardTitle>
 
-              {productData?.images ? (
+              {productData.images ? (
                 <div
                   className={styles.whatsapp}
                   onClick={() =>
                     addProductToWhatsApp(
-                      productData?.images +
+                      productData.images +
                         " " +
-                        productData?.name_extend +
+                        productData.name_extend +
                         " " +
                         "Referencia: " +
-                        productData?.ref
+                        productData.ref
                     )
                   }
                 >
@@ -150,23 +161,23 @@ export function DetailProduct(props) {
                   className={styles.whatsapp}
                   onClick={() =>
                     addProductAlternaToWhatsApp(
-                      productData?.image_alterna +
+                      productData.image_alterna +
                         " " +
-                        productData?.name_extend +
+                        productData.name_extend +
                         " " +
                         "Referencia: " +
-                        productData?.ref
+                        productData.ref
                     )
                   }
                 >
                   <BsWhatsapp size={25} color="white" />
                 </div>
               )}
-              <h6>Disponible: {productData?.qty}</h6>
-              <Button onClick={() => addProductId(productData?.codigo)}>
+
+              <Button onClick={() => addProductId(productData.codigo)}>
                 Agregar al Carrito
               </Button>
-              <p>{productData?.description}</p>
+              <p>{productData.description}</p>
             </div>
           </div>
 

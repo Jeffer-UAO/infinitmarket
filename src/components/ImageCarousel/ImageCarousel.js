@@ -32,7 +32,7 @@ export function ImageCarousel(props) {
                   controls={true}
                 />
               ) : item.image ? (
-                <img alt={`Slide ${index}`} src={BASE_NAME + item.image} />
+                <CardImg alt={`Slide ${index}`} src={BASE_NAME + item.image} />
               ) : (
                 <CardImg alt={`Slide ${index}`} src={item.image_alterna} />
               )}

@@ -50,7 +50,7 @@ export function Footer() {
       </div>
       <div>
         <p className={styles.copyright}>
-        INFINIT MARKET Copyright © 2023. Todos los derechos
+        INFINITY MARKET Copyright © 2023. Todos los derechos
           reservados <br />
           Desarrollado por: Jeffer Quiñones <br />
           Cel: 300 530 9990

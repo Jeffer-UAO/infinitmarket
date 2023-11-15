@@ -12,8 +12,8 @@ export function Redes() {
     <div className={styles.space}>
       <ul>
         <li>DESPACHOS A TODA COLOMBIA</li>
-        <li>Facebook</li>
-        <p>Cel: 300 530 9990</p>
+        {/* <li>Facebook</li> */}
+        <p>Cel: 3216540641</p>
       </ul>
     </div>
   );

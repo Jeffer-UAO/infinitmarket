@@ -27,35 +27,50 @@ export function Search(props) {
       )}
 
       <div className={styles.list}>
-        {map(products, (product, index) => (
-          <div key={index} className={styles.list__product}>
-            <Link href={`/${product.slug}`}>
-              {product.images ? (
-                <CardImg
-                  alt="Card image cap"
-                  src={BASE_NAME + product.images}
-                />
-              ) : (
-                <CardImg alt="Card image cap" src={product.image_alterna} />
-              )}
-              <div className={styles.product}>
-                <CardTitle className={styles.title}>
-                  <p>{product.name_extend}</p>
+        {map(products, (product, index) =>
+          !product.soldout ? (
+            <div key={index} className={styles.list__product}>
+              <Link href={`/${product.slug}`}>
+                {product.images ? (
+                  <CardImg
+                    alt="Card image cap"
+                    src={BASE_NAME + product.images}
+                  />
+                ) : (
+                  <CardImg alt="Card image cap" src={product.image_alterna} />
+                )}
+                <div className={styles.product}>
+                  <CardTitle className={styles.title}>
+                    <p>{product.name_extend}</p>
 
-                  {product.price1 !== null && (
-                    <h6>$ {format(product.price1)}</h6>
-                  )}
-                  {product.price2 !== null && (
-                    <></>
-                    // <h6>$ {format(product.price2)}</h6>
-                  )}
+                    {product.price1 !== null && (
+                      <h6>$ {format(product.price1)}</h6>
+                    )}
 
-                  <h5>Disponible: {product.qty}</h5>
-                </CardTitle>
-              </div>
-            </Link>
-          </div>
-        ))}
+                    <h5>Disponible: {product.qty}</h5>
+                  </CardTitle>
+                </div>
+              </Link>
+            </div>
+          ) : (
+            <div key={index} className={styles.list__soldout}>            
+                {product.images ? (
+                  <CardImg
+                    alt="Card image cap"
+                    src={BASE_NAME + product.images}
+                  />
+                ) : (
+                  <CardImg alt="Card image cap" src={product.image_alterna} />
+                )}
+                <div className={styles.product}>
+                  <CardTitle className={styles.title}>
+                    <p>{product.name_extend}</p>
+                    <h6>AGOTADO</h6>
+                  </CardTitle>
+                </div>      
+            </div>
+          )
+        )}
       </div>
 
       <FooterApp />

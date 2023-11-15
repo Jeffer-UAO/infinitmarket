@@ -65,7 +65,7 @@ export function FooterCart(props) {
           onClick={() => toggleModal()}
         >
           <BsWhatsapp size={30} color="green" />
-          <p>Enviar Listado</p>
+          <p>Enviar Pedido</p>
         </Button>
 
         <BsTrash3 size="25" color="grey" onClick={confirmation} />
