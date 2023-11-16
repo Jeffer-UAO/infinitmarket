@@ -1,12 +1,14 @@
 .detailProduct {
   text-align: center;
   width: 100%;
+  
 
   img {    
     object-fit: cover;
     object-position: center center;
     max-width: 25rem;  
     max-height: 25rem;
+    
   
   }
   h6 {
@@ -18,6 +20,7 @@
 
   .product {
     margin-top: 1px;
+
     // background-color: rgba(233, 234, 234, 0.344);
     .title {
       .name_extend {
@@ -40,6 +43,7 @@
       position: relative;
       background-color: white;
       padding: 10px;
+      
 
       button {
         width: 95% !important;
@@ -56,7 +60,6 @@
         position: absolute;
         top: -4rem;
         right: 1rem;
-
         margin: 0.5rem;
         padding: 0.6rem;
         background-color: #76be1e;
@@ -70,7 +73,7 @@
 
   .relate {
     padding: 10px;
-
+    
     p {
       margin-top: 0px;
       margin-bottom: 10px;
@@ -83,13 +86,13 @@
   display: grid;
   gap: 0.6rem;
   grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+  
 
   &__product2 {
     background-color: rgb(254, 254, 254);
     position: relative;
-
     border-radius: 6px;
-
+    
     .name {
       padding: 5px;
       text-align: center;
@@ -97,7 +100,6 @@
 
     img {
       border-radius: 6px;
-
       max-height: 25rem;
       object-fit: cover;
       object-position: center center;

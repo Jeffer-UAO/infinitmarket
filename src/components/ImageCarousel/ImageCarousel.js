@@ -15,8 +15,7 @@ console.log(gallery);
   return (
     <div className={styles.content}>
       <Carousel
-        infiniteLoop={true}
-        showThumbs={true}
+        infiniteLoop={true}        
         preventMovementUntilSwipeScrollTolerance={true}     
         dynamicHeight={true}
         showStatus={false}
