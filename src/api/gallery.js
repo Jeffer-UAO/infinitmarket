@@ -2,8 +2,7 @@ import { BASE_API } from "../config/constants";
 
 
 export async function getGalleryProductByCode(code) {
-
-    const codeFilter = `product=${code}`;
+   const codeFilter = `product=${code}`;
    
     try {
       const url = `${BASE_API}/api/gallery/?${codeFilter}`;

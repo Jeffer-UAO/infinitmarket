@@ -41,13 +41,14 @@ export function DetailProduct(props) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
 
+
   useEffect(() => {
-    getGalleryByCode(productData.codigo);
+    getGalleryByCode(productData);
   }, []);
 
   const changeDetail = (data) => {
     setProductData(data);
-    getGalleryByCode(data.codigo);
+    getGalleryByCode(data);
     window.scrollTo(0, 0);
   };
 
@@ -114,7 +115,7 @@ export function DetailProduct(props) {
         <div className={styles.detailProduct}>
           <div className={styles.product} id="seccion-1">
             {size(gallery) > 0 ? (
-              <ImageCarousel images={gallery} />
+              <ImageCarousel gallery={gallery} />
             ) : productData.images ? (
               <CardImg
                 alt="Card image cap"

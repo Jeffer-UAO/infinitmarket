@@ -16,6 +16,8 @@ export function useGallery() {
         const updatedResult = [...response, data];
         setLoading(false);
         setGallery(updatedResult);
+      
+        
       } else {
         // Manejo de error o lógica según sea necesario
         console.error("getGalleryByCode no devolvió un array");

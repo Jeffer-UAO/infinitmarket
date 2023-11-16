@@ -10,7 +10,8 @@ import { CardImg } from "reactstrap";
 
 export function ImageCarousel(props) {
   const { gallery } = props; 
-
+  
+console.log(gallery);
   return (
     <div className={styles.content}>
       <Carousel
