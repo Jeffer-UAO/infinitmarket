@@ -113,7 +113,7 @@ export function DetailProduct(props) {
       <>
         <div className={styles.detailProduct}>
           <div className={styles.product} id="seccion-1">
-            {(gallery !== null && (size(gallery) > 0 )) ? (
+            {(size(gallery) > 1 ) ? (
               <ImageCarousel gallery={gallery} />
             ) : productData?.images ? (
               <CardImg
