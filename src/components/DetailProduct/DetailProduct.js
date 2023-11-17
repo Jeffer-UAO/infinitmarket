@@ -64,7 +64,6 @@ export function DetailProduct(props) {
   const addData = () => {
     addCart(idProduct, quantity);
     toast.success("¡Se agrego con exito!");
-
     openCloseModal();
   };
 
@@ -114,9 +113,9 @@ export function DetailProduct(props) {
       <>
         <div className={styles.detailProduct}>
           <div className={styles.product} id="seccion-1">
-            {size(gallery) > 0 ? (
+            {(gallery !== null && (size(gallery) > 0 )) ? (
               <ImageCarousel gallery={gallery} />
-            ) : productData.images ? (
+            ) : productData?.images ? (
               <CardImg
                 alt="Card image cap"
                 src={BASE_NAME + productData.images}

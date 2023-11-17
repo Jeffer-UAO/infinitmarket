@@ -23,7 +23,7 @@ console.log(gallery);
         {gallery &&
           gallery.length > 0 &&
           gallery.map((item, index) => (
-            <div className={styles.carousel} key={index}>
+            <div className={styles.carousel_vim} key={index}>
               {item.video_url ? (
                 <ReactPlayer
                   url={item.video_url}
