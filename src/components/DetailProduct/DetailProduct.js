@@ -41,7 +41,6 @@ export function DetailProduct(props) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
 
-
   useEffect(() => {
     getGalleryByCode(productData);
   }, []);
@@ -113,7 +112,7 @@ export function DetailProduct(props) {
       <>
         <div className={styles.detailProduct}>
           <div className={styles.product} id="seccion-1">
-            {(size(gallery) > 1 ) ? (
+            {size(gallery) > 1 ? (
               <ImageCarousel gallery={gallery} />
             ) : productData?.images ? (
               <CardImg
@@ -121,10 +120,7 @@ export function DetailProduct(props) {
                 src={BASE_NAME + productData.images}
               />
             ) : (
-              <CardImg
-                alt="Card image cap"
-                src={productData.image_alterna}
-              />
+              <CardImg alt="Card image cap" src={productData.image_alterna} />
             )}
 
             <div className={styles.description}>
@@ -173,7 +169,7 @@ export function DetailProduct(props) {
                   <BsWhatsapp size={25} color="white" />
                 </div>
               )}
-
+              <p>Dispible {productData.qty}</p>
               <Button onClick={() => addProductId(productData.codigo)}>
                 Agregar al Carrito
               </Button>
