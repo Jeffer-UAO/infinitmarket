@@ -64,7 +64,7 @@ export function ImageCarousel(props) {
               ) : item.images ? (
                 <CardImg alt={`Slide ${index}`} src={BASE_NAME + item.images} />
               ) : item.image ? (
-                <CardImg alt={`Slide ${index}`} src={item.image} />
+                <CardImg alt={`Slide ${index}`} src={BASE_NAME + item.image} />
               ) : item.image_alterna ? (
                 <CardImg alt={`Slide ${index}`} src={item.image_alterna} />
               ) : (
