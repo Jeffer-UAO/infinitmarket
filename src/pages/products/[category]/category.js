@@ -10,7 +10,7 @@ export default function category(props) {
 
   return (
     <BasicLayout>
-          <Redes />
+         
       {hasProduct ? (
         <Listproducts products={products} title={category.name} />
       ) : (

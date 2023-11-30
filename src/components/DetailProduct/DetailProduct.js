@@ -169,7 +169,7 @@ export function DetailProduct(props) {
                   <BsWhatsapp size={25} color="white" />
                 </div>
               )}
-              <p>Dispible {productData.qty}</p>
+              <p>Disponible {productData.qty}</p>
               <Button onClick={() => addProductId(productData.codigo)}>
                 Agregar al Carrito
               </Button>

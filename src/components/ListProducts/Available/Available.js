@@ -22,7 +22,7 @@ import styles from "./Available.module.scss";
 
 export function Available(props) {
   const { product } = props;
-  const { addCart, loading } = useCart();
+  const { addCart } = useCart();
   const { generateWhatsAppLink, items, selectedItem, handleItemClick } =
     useWhatsApp();
   const [isOpen, setIsOpen] = useState(false);
@@ -96,7 +96,10 @@ export function Available(props) {
     <div className={styles.list__product}>
       {product.productData.images ? (
         <Link href={`/${product.productData.slug}`}>
-          <CardImg alt="Card image cap" src={BASE_NAME + product.productData.images} />
+          <CardImg
+            alt="Card image cap"
+            src={BASE_NAME + product.productData.images}
+          />
         </Link>
       ) : (
         <Link href={`/${product.productData.slug}`}>

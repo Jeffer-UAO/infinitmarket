@@ -7,7 +7,8 @@ import styles from "./ListCategories.module.scss";
 
 export function ListCategories(props) {
   const { categories } = props;
-
+  const scale = "c_scale,f_auto,q_20,w_500/";
+  const upload = 'image/upload/';
 
   return (
     <div className={styles.content}>
@@ -19,7 +20,9 @@ export function ListCategories(props) {
               <Link href={`/products/${category.slug}`}>
                 <CardImg
                   alt="Card image cap"
-                  src={BASE_NAME + category.image}
+                 src={BASE_NAME + upload +
+                    scale + category.image.split(upload)[1]}
+                  className={styles.skeleton}
                 />
                 <div className={styles.category}>
                   <CardTitle className={styles.title}>
@@ -31,6 +34,7 @@ export function ListCategories(props) {
             ) : (
               <Link href={`/products/${category.slug}`}>
                 <CardImg alt="Card image cap" src={category.image_alterna} />
+
                 <div className={styles.category}>
                   <CardTitle className={styles.title}>
                     <h2>{category.name}</h2>

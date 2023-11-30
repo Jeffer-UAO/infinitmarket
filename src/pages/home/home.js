@@ -37,7 +37,7 @@ export default function HomePage() {
     return (
       <>
         <BasicLayout>
-          <Redes />
+          {/* <Redes /> */}
           <ListCategories categories={categories} />
 
           {/* <Promotion products={products} />

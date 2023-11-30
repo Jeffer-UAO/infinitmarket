@@ -3,9 +3,8 @@
   align-items: center;
   width: 100%;
   z-index: 5;
-  background-color: rgba(201, 200, 200, 0.678);
+  background-color: rgb(201, 200, 200);
   padding: 1rem;
-  border-radius: 0 0 1rem 1rem;
 
   input {
     left: 0;
@@ -31,10 +30,10 @@
 }
 
 .list {
-  padding: 1rem;
+  padding: 0.5rem;
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
 
   font-size: 0.8rem;
   text-align: center;

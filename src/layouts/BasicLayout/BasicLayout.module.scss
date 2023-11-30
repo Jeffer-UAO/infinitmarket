@@ -1,7 +1,15 @@
 .basicLayout {
-
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    21deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(0, 0, 0, 0.7315301120448179) 12%,
+    rgba(12, 183, 242, 0.45702030812324934) 35%,
+    rgba(242, 242, 242, 0.05926120448179273) 54%,
+    rgba(12, 183, 242, 0.36458333333333337) 75%,
+    rgba(0, 0, 0, 0.4990371148459384) 100%
+  );
   text-align: center;
   align-items: center;
   flex-direction: column;
- 
 }

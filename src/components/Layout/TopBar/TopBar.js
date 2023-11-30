@@ -4,12 +4,18 @@ import Link from "next/link";
 
 export function TopBar() {
   return (
-    <div className={styles.topBarComponent}>
+    <div className={styles.topbar_component}>
       <div className={styles.topBar}>      
+        <h1>INFINITY</h1>
         <Link href="/">
-          <CardImg src="/image/logo.png" alt="No hay logo" />{" "}
+          <CardImg src="/image/logo.jpeg" alt="No hay logo" />{" "}
         </Link>
+         <h1>MARKET</h1>
       </div>     
+      <div className={styles.title}>
+        <h6>DESPACHOS A TODA COLOMBIA</h6>
+        <p>Cel: 321 654 0641</p>
+      </div>
     </div>
   );
 }
