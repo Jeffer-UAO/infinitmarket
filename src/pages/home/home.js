@@ -53,7 +53,7 @@ export default function HomePage() {
     return (
       <>
         <BasicLayout>
-          <ListCategories categories={categories} />
+         <p>Cargando...</p>
           <FooterApp />
           <Footer />
         </BasicLayout>

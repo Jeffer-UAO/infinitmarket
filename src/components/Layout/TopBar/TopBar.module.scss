@@ -11,21 +11,7 @@
     rgba(0, 0, 0, 0.4990371148459384) 100%
   );
   
-  // background: rgba(255, 255, 255, 0.62);
-  // border-radius: 16px;
-  // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  // backdrop-filter: blur(5px);
-  // -webkit-backdrop-filter: blur(5px);
-  // border: 1px solid rgba(255, 255, 255, 0.3);
-  // border-radius: 0.3rem;
-  // display: flex;
-  // justify-content: space-between;
-  // align-items: center;
-  // padding: 10px 15px;
-  
   .topBar {
-    display: flex;
-    justify-content: center;
     align-items: center;
     h1, h6{
       color: aliceblue;
@@ -42,9 +28,9 @@
   .title {
 
     text-align: center;
-    // h1, h6, p{
-    //   color: aliceblue;
-    // }
+    h1, h6, p{
+      color: aliceblue;
+    }
   }
 
   .redes {

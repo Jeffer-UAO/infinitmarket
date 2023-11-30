@@ -117,22 +117,22 @@ export function DetailProduct(props) {
             ) : productData?.images ? (
               <CardImg
                 alt="Card image cap"
-                src={BASE_NAME + productData.images}
+                src={BASE_NAME + productData?.images}
               />
             ) : (
-              <CardImg alt="Card image cap" src={productData.image_alterna} />
+              <CardImg alt="Card image cap" src={productData?.image_alterna} />
             )}
 
             <div className={styles.description}>
               <CardTitle className={styles.title}>
                 <h5 className={styles.name_extend}>
-                  {productData.name_extend}
+                  {productData?.name_extend}
                 </h5>
                 <div className={styles.price}>
-                  {productData.price1 > 1 && (
-                    <h5>$ {format(productData.price1)} </h5>
+                  {productData?.price1 > 1 && (
+                    <h5>$ {format(productData?.price1)} </h5>
                   )}
-                  {productData.price2 > 1 && <h5></h5>}
+                  {productData?.price2 > 1 && <h5></h5>}
                 </div>
               </CardTitle>
 
@@ -141,12 +141,12 @@ export function DetailProduct(props) {
                   className={styles.whatsapp}
                   onClick={() =>
                     addProductToWhatsApp(
-                      productData.images +
+                      productData?.images +
                         " " +
-                        productData.name_extend +
+                        productData?.name_extend +
                         " " +
                         "Referencia: " +
-                        productData.ref
+                        productData?.ref
                     )
                   }
                 >
@@ -157,12 +157,12 @@ export function DetailProduct(props) {
                   className={styles.whatsapp}
                   onClick={() =>
                     addProductAlternaToWhatsApp(
-                      productData.image_alterna +
+                      productData?.image_alterna +
                         " " +
-                        productData.name_extend +
+                        productData?.name_extend +
                         " " +
                         "Referencia: " +
-                        productData.ref
+                        productData?.ref
                     )
                   }
                 >
@@ -177,7 +177,7 @@ export function DetailProduct(props) {
             </div>
           </div>
 
-          <div className={styles.relate}>
+          {/* <div className={styles.relate}>
             <p>PRODUCTOS RELACIONADOS</p>
 
             <div className={styles.list}>
@@ -221,7 +221,7 @@ export function DetailProduct(props) {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           <Modal centered isOpen={showModal} toggle={openCloseModal}>
             <ModalHeader toggle={openCloseModal}>Ingrese Cantidad</ModalHeader>
