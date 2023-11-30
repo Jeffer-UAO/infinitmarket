@@ -1,9 +1,14 @@
 .list {
   background-color: aliceblue;
   margin-bottom: 5rem;
+ 
+  label{
+    padding-top: 10rem;
+  }
   h4 {
+    
     border-radius: 0.3rem;
-    background-color: rgb(80, 154, 70);
+    background-color: rgb(48, 180, 227);
     margin-top: 1rem;
     text-align: center;
     color: rgb(255, 255, 255);
@@ -11,6 +16,7 @@
   padding: 1rem;
 
   .card {
+    
     display: flex;
     margin: 0.5rem;
 

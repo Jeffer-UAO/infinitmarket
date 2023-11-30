@@ -19,6 +19,7 @@ export function ListCart(props) {
   return (
     <div>
       <div className={styles.list}>
+        <label></label>
         <h4>CARRITO</h4>
         {map(product, (item) => (
           <div key={item.codigo} className={styles.card}>
