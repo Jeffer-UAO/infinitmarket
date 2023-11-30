@@ -136,7 +136,7 @@ export function DetailProduct(props) {
                 </div>
               </CardTitle>
 
-              {productData.images ? (
+              {productData?.images ? (
                 <div
                   className={styles.whatsapp}
                   onClick={() =>
@@ -169,11 +169,11 @@ export function DetailProduct(props) {
                   <BsWhatsapp size={25} color="white" />
                 </div>
               )}
-              <p>Disponible {productData.qty}</p>
-              <Button onClick={() => addProductId(productData.codigo)}>
+              <p>Disponible {productData?.qty}</p>
+              <Button onClick={() => addProductId(productData?.codigo)}>
                 Agregar al Carrito
               </Button>
-              <p>{productData.description}</p>
+              <p>{productData?.description}</p>
             </div>
           </div>
 

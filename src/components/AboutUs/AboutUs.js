@@ -7,6 +7,7 @@ export function AboutUs() {
         <h1>Nosotros</h1>
         <p>---</p>
       </div>
+      
 
       <div className={styles.mision}>
         <h5>Misión</h5>

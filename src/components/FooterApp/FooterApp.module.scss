@@ -4,25 +4,30 @@
   bottom: 0;
   justify-content: center;
   z-index: 2;
- 
 
   .paneluser {
-    border: solid 1px;
     display: flex;
-    background-color: rgba(77, 77, 77, 0.806);
+    background-color: rgb(255, 255, 255);
     align-items: center;
-    width: 97vw;
+    width: 100vw;
     justify-content: space-between;
-    padding: 0.2rem;
-    margin: 0.5rem;
-    border-radius: 0.5rem;
+    padding: 0.4rem 0.8rem 0.4rem 0.8rem;
 
-   
+    -webkit-box-shadow: 0px 4px 5px 2px rgb(0, 0, 0);
+        -moz-box-shadow: 0px 4px 5px 2px rgb(0, 0, 0);
+        box-shadow: 0px 4px 5px 2px rgb(0, 0, 0);
+        
+    img {
+      border-radius: 50%;
+      aspect-ratio: 1/1;
+      width: 3rem;
+      box-shadow: 3px 3px 10px rgba(21, 111, 202, 0.598);
+    }
 
-    .whatsapp { 
+    .whatsapp {
       padding: 0.3rem;
-      background-color: rgb(234, 238, 234);
-      border-radius: 50%;   
+      background-color: rgb(255, 255, 255);
+      border-radius: 50%;
     }
   }
 
@@ -33,13 +38,14 @@
       justify-content: center;
       align-items: center;
       position: absolute;
-      background-color: rgb(255, 255, 255);
-      color: rgb(36, 32, 97);
+      background-color: rgb(196, 32, 32);
+      color: rgb(255, 255, 255);
       font-weight: 800;
       font-size: 13px;
-      left: 50px;
-      border-radius: 50px;
+      left: 30px;
+      border-radius: 1rem;
       width: 1.5rem;
+      height: 1.5rem;
     }
   }
 }

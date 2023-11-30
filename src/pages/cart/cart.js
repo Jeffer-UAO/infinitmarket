@@ -91,8 +91,7 @@ export default function CartPage() {
 
   return (
     <BasicLayout>
-      <Redes />
-      {load ? (
+         {load ? (
         <h1>Cargando ...</h1>
       ) : (
         <>

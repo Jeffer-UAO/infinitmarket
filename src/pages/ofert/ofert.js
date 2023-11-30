@@ -17,7 +17,7 @@ export default function OfertPage(props) {
   return (
     <>
       <BasicLayout>
-        <Redes />
+        
         {hasProduct ? (
           <Promotion products={products} />
         ) : (

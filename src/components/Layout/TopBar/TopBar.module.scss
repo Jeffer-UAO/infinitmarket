@@ -1,17 +1,26 @@
 .topbar_component {
+
+  -webkit-box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+  box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+  
   padding: 0.5rem;
-  background: rgb(255, 255, 255);
+  position: fixed;
+  z-index: 1;
+  width: 100%;
   background: linear-gradient(
     21deg,
     rgba(255, 255, 255, 1) 0%,
-    rgba(0, 0, 0, 0.7315301120448179) 12%,
-    rgba(12, 183, 242, 0.45702030812324934) 35%,
-    rgba(242, 242, 242, 0.05926120448179273) 54%,
-    rgba(12, 183, 242, 0.36458333333333337) 75%,
-    rgba(0, 0, 0, 0.4990371148459384) 100%
+    rgb(44, 44, 44) 12%,
+    rgb(12, 185, 242) 35%,
+ 
+    rgb(12, 185, 242) 75%,
+    rgb(255, 255, 255) 90%
+    
   );
   
   .topBar {
+    
     align-items: center;
     h1, h6{
       color: aliceblue;

@@ -5,9 +5,7 @@ export default function ContactHome() {
   return (
     <>
       <BasicLayout>
-        <Redes />
         <Contact />
-
         <Footer />
       </BasicLayout>
     </>

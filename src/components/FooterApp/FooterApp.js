@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useCart } from "@/hooks/useCart";
 import { useWhatsApp } from "@/hooks/useWhatsApp";
-import {BASE_API} from "@/config/constants"
+import { BASE_API } from "@/config/constants";
 import { AiOutlineHome, AiOutlineShoppingCart } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 import { CiUser } from "react-icons/ci";
 import { BsWhatsapp } from "react-icons/bs";
+import Link from "next/link";
 
 import styles from "./FooterApp.module.scss";
 
@@ -17,6 +18,7 @@ import {
   ModalBody,
   ModalFooter,
   FormGroup,
+  CardImg,
 } from "reactstrap";
 
 export function FooterApp() {
@@ -44,35 +46,34 @@ export function FooterApp() {
   return (
     <div className={styles.btnWhatsapp}>
       <div className={styles.paneluser}>
-        <BtnLink link={"/"} title={"HOME"} logo={<AiOutlineHome size={20} color="black"/>} />
-        <BtnLink
-          link={"/featured"}
-          title={"EXCL"}
-          logo={<BsSearch size={20} color="black"/>}
-        />
+        <Link href={`/`}>
+          <CardImg src="/image/btn-home.jpg" alt="Home" />{" "}
+        </Link>
+
+        <Link href={`/featured`}>
+          <CardImg src="/image/btn-lupa.jpg" alt="Buscar" />{" "}
+        </Link>
 
         <Button
           className={styles.whatsapp}
           color="succefull"
           onClick={() => toggleModal()}
         >
-          <BsWhatsapp size={30} color="green" />
+          <BsWhatsapp size={35} color="green" />
         </Button>
 
         <div className={styles.cart}>
-          <p>{total}</p>
-          <BtnLink
-            link={"/cart"}
-            title={"CART"}
-            logo={<AiOutlineShoppingCart size={20} color="black" />}
-          />
+          {total > 0 && <p>{total}</p>}
+          <Link href={`/cart`}>
+            <CardImg src="/image/btn-car.jpg" alt="Carrito" />{" "}
+          </Link>
         </div>
 
-        <BtnLink
-          link={`${BASE_API}/admin-dashboard/`}
-          title={"ADMI"}
-          logo={<CiUser size={20} color="black" />}
-        />
+        <Link
+          href={`https://gabirel.suprainnovations.store/admin-dashboard/login/?next=/admin-dashboard/`}
+        >
+          <CardImg src="/image/btn-user.jpg" alt="Usuario" />{" "}
+        </Link>
       </div>
 
       <Modal centered isOpen={isOpen} toggle={toggleModal}>

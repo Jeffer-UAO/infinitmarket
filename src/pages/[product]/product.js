@@ -7,9 +7,11 @@ export default function ProductPage(props) {
 
   return (
     <div>
-      <DetailProduct product={product} relate={relate} gallery={gallery} />
-      <FooterApp />
-      <Footer />
+      <BasicLayout>
+        <DetailProduct product={product} relate={relate} gallery={gallery} />
+        <FooterApp />
+        <Footer />
+      </BasicLayout>
     </div>
   );
 }

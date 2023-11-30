@@ -4,8 +4,7 @@ import { BasicLayout } from "../../layouts";
 export default function AboutHome() {
   return (
     <>
-      <BasicLayout>
-        <Redes />
+      <BasicLayout>    
         <AboutUs />
         <FooterApp />
         <Footer />
