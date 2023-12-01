@@ -1,6 +1,6 @@
 .content {
   
-  padding: 1rem;
+  padding: 0.5rem;
 
 
   h1 {
@@ -16,14 +16,14 @@
   .list {
 
     display: grid;
-    gap: 1rem;
+    gap: 0.5rem;
     grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
     text-align: center;
 
     .card {
-      border-radius: 0.5rem;
+
       background: rgba(255, 255, 255, 0.62);
-      border-radius: 16px;
+      border-radius: 0.5rem;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(5px);

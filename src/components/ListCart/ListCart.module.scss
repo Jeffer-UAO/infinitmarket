@@ -1,12 +1,11 @@
 .list {
   background-color: aliceblue;
   margin-bottom: 5rem;
- 
-  label{
+
+  label {
     padding-top: 10rem;
   }
   h4 {
-    
     border-radius: 0.3rem;
     background-color: rgb(48, 180, 227);
     margin-top: 1rem;
@@ -16,7 +15,6 @@
   padding: 1rem;
 
   .card {
-    
     display: flex;
     margin: 0.5rem;
 
@@ -30,7 +28,7 @@
       .name {
         text-transform: uppercase;
         font-size: 0.7rem;
-     
+
         color: rgb(133, 132, 132);
 
         //    line-height: 1.8125rem;
