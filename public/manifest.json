@@ -5,18 +5,18 @@
   "scope": "/",
   "start_url": "/",
   "name": "INFINITY MARKET",
-  "short_name": "Catálogo INFINITY MARKET",
-  "description": "Catálogo INFINITY MARKET",
+  "short_name": "INFINITY MARKET",
+  "description": "INFINITY MARKET",
   "icons": [
     {
       "src": "/icon-192x192.jpeg",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/jpeg"
     },
     {
       "src": "/icon-512x512.jpeg",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/jpeg"
     }
   ]
 }
