@@ -2,14 +2,14 @@
   text-align: center;
   width: 100%;
 
+  
 
-  img {    
-  aspect-ratio: 3/3.3;
+  img {
+    aspect-ratio: 3/3.3;
     object-fit: cover;
     object-position: center center;
-    max-width: 30rem;  
+    max-width: 30rem;
     max-height: 30rem;
-  
   }
   h6 {
     white-space: nowrap;
@@ -19,8 +19,16 @@
   }
 
   .product {
-    
     // background-color: rgba(233, 234, 234, 0.344);
+    iframe {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      
+    }
+
+    
+
     .title {
       .name_extend {
         text-transform: uppercase;
@@ -85,6 +93,7 @@
   display: grid;
   gap: 0.6rem;
   grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+  
 
   &__product2 {
     background-color: rgb(254, 254, 254);
@@ -121,3 +130,4 @@
     }
   }
 }
+
