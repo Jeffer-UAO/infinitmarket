@@ -116,7 +116,9 @@ export function Available(props) {
           {product.productData.price1 > 0 && (
             <h6>$ {format(product.productData.price1)}</h6>
           )}
-          {product.productData.price2 > 0 && <h6></h6>}
+          {product.productData.price_old > 0 && 
+          <p> $ {format(parseInt(product.productData.price_old))}</p>
+          }
         </div>
       </div>
       <h6>Disponible: {parseInt(product.itemactitemData.qty_available)}</h6>

@@ -37,6 +37,7 @@ export function DetailProduct(props) {
   const [propductAlternaWhatsApp, setPropductAlternaWhatsApp] = useState("");
   const [quantity, setQuantity] = useState(1);
 
+  console.log(productData);
   const format = (number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
@@ -169,7 +170,11 @@ export function DetailProduct(props) {
                   <BsWhatsapp size={25} color="white" />
                 </div>
               )}
-              <p>Disponible {productData?.qty}</p>
+              {/* <p>Disponible {parseInt(productData?.qty)}</p> */}
+
+              {productData?.price_old > 0 && (
+                <h6> $ {format(parseInt(productData?.price_old))}</h6>
+              )}
               <Button onClick={() => addProductId(productData?.codigo)}>
                 Agregar al Carrito
               </Button>

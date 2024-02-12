@@ -12,7 +12,7 @@
     background-color: #ffd814;
     border: none;
     color: black;
-    margin-bottom: 0.5rem;
+    margin: 1rem 0;
 
   }
 
@@ -39,6 +39,10 @@
     h6 {
       font-weight: 800;
       color: #fd384f;
+    }
+    p{
+      color: #b3b3b3;
+      text-decoration: line-through;
     }
   }
 }
