@@ -12,6 +12,7 @@ import styles from "./ListCart.module.scss";
 export function ListCart(props) {
   const { product } = props;
   const { decreaseCart, incrementCart, deleteCart } = useCart();
+  
   const format = (number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); // Cambia 'es-ES' por tu configuración regional
   };

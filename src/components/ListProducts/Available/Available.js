@@ -119,7 +119,7 @@ export function Available(props) {
           {product.productData.price2 > 0 && <h6></h6>}
         </div>
       </div>
-      <h6>Disponible: {product.productData.qty}</h6>
+      <h6>Disponible: {parseInt(product.itemactitemData.qty_available)}</h6>
       <Button
         color="primary"
         onClick={() => addProductId(product.productData.codigo)}
