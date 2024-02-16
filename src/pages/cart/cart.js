@@ -16,15 +16,55 @@ import { BASE_NAME } from "@/config/constants";
 const productCtrl = new Products();
 
 export default function CartPage() {
+
   const { cart } = useCart("");
   const [product, setProduct] = useState("");
   const [load, setLoad] = useState(true);
   const hasProduct = size(product) > 0;
 
   const [newProduct, setNewProduct] = useState("");
+  const [follow, setFollow] = useState("");
+  const [newOrder, setNewOrder] = useState([{ item: "", qtyorder: "", qty: "", price: ""}]);
 
   const identificadorUnico = generarIdentificadorUnico();
+  
+  // const datosPedido = {
+  //   cust: 1,
+  //   tipo: 'PEDIDO INTERNO', 
+  //   concept: 'Concepto del pedido',
+  //   orderdetData: [
+  //     {       
+  //       comments: "",
+  //       price: 1500.00,
+  //       qty: 2,
+  //       qtyorder: 1,
+  //       item: '0225',       
+  //     },
+  //     {       
+  //       comments: "",
+  //       price: 3500.00,
+  //       qty: 2,
+  //       qtyorder: 1,
+  //       item: '0224',     
+  //     },
+  //     {   
+  //       comments: "",
+  //       price: 1500.00,
+  //       qty: 2,
+  //       qtyorder: 1,
+  //       item: '0226',    
+  //     },
+  //     {      
+  //       comments: "",
+  //       price: 2500.00,
+  //       qty: 1,
+  //       qtyorder: 1,
+  //       item: '0227',     
+  //     },      
+  //   ],
+  // };
 
+ 
   useEffect(() => {
     (async () => {
       try {
@@ -45,6 +85,7 @@ export default function CartPage() {
     (async () => {
       try {
         const newObjectArray = [];
+        const orderArray = [];
 
         for (const record of product) {
           const newRecord = {};
@@ -55,7 +96,9 @@ export default function CartPage() {
               [
                 "name_extend",
                 "quantity",
+                "codigo",
                 "images",
+                "price1",
                 "image_alterna",
                 "ref",
               ].includes(key)
@@ -71,6 +114,12 @@ export default function CartPage() {
               Cantidad: newRecord.quantity,
               Imagen: BASE_NAME + newRecord.images,
             });
+            orderArray.push({
+              price: newRecord.price1,
+              item: newRecord.codigo,
+              qty: newRecord.quantity,
+              qty_order: newRecord.quantity,
+            });
           } else {
             newObjectArray.push({
               Producto: newRecord.name_extend,
@@ -78,11 +127,19 @@ export default function CartPage() {
               Cantidad: newRecord.quantity,
               Imagen: newRecord.image_alterna,
             });
+            orderArray.push({
+              price: newRecord.price1,
+              item: newRecord.codigo,
+              qty: newRecord.quantity,
+              qty_order: newRecord.quantity,
+            });
           }
         }
         const newArrayAsString = JSON.stringify(newObjectArray, null, 2);
-
         setNewProduct(`Pedido No.  ${identificadorUnico} ${newArrayAsString}`);
+        setFollow(identificadorUnico);
+        setNewOrder(orderArray);
+        
       } catch (error) {
         console.error(error);
       }
@@ -96,7 +153,7 @@ export default function CartPage() {
       ) : (
         <>
           {hasProduct ? (
-            <ListCart product={product} />
+            <ListCart product={product}  />
           ) : (
             <NotFound
               title={"Uppss... en este momento no hay productos en el Carrito"}
@@ -104,7 +161,7 @@ export default function CartPage() {
           )}
         </>
       )}
-      <FooterCart product={newProduct} />
+      <FooterCart product={newProduct} order={newOrder} follow={follow}  />
     </BasicLayout>
   );
 }

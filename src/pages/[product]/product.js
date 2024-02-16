@@ -7,11 +7,10 @@ export default function ProductPage(props) {
 
   return (
     <div>
-  <DetailProduct product={product} gallery={gallery} />
-        {/* <DetailProduct product={product} relate={relate} gallery={gallery} /> */}
-        <FooterApp />
-        <Footer />
-
+      <DetailProduct product={product} gallery={gallery} />
+      {/* <DetailProduct product={product} relate={relate} gallery={gallery} /> */}
+      <FooterApp />
+      <Footer />
     </div>
   );
 }

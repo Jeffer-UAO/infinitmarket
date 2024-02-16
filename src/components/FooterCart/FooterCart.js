@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { useCart } from "@/hooks/useCart";
+import { useOrder } from "@/hooks";
 import { useWhatsApp } from "@/hooks/useWhatsApp";
 import {
   Button,
@@ -18,8 +19,9 @@ import { BsWhatsapp } from "react-icons/bs";
 import styles from "./FooterCart.module.scss";
 
 export function FooterCart(props) {
-  const { product } = props;
+  const { product, order, follow } = props;
   const { deleteAllCart } = useCart();
+  const { addOrders } = useOrder();
   const { items, selectedItem, handleItemClick } = useWhatsApp();
   const router = useRouter();
 
@@ -42,6 +44,11 @@ export function FooterCart(props) {
     }
   }
 
+  async function enviarPedido() {
+    const result = await addOrders(order, follow);
+    console.log(result);
+  }
+
   const generateWhatsAppLink = (phoneNumber, message) => {
     const url = `https://wa.me/${phoneNumber}`;
     const encodedMessage = encodeURIComponent(message);
@@ -49,9 +56,12 @@ export function FooterCart(props) {
   };
 
   const addData = () => {
+    console.log("gola");
     const whatsappLink = generateWhatsAppLink(selectedItem, product);
+
     window.location.href = whatsappLink;
     toggleModal();
+    enviarPedido();
   };
 
   return (
