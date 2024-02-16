@@ -28,42 +28,7 @@ export default function CartPage() {
 
   const identificadorUnico = generarIdentificadorUnico();
   
-  // const datosPedido = {
-  //   cust: 1,
-  //   tipo: 'PEDIDO INTERNO', 
-  //   concept: 'Concepto del pedido',
-  //   orderdetData: [
-  //     {       
-  //       comments: "",
-  //       price: 1500.00,
-  //       qty: 2,
-  //       qtyorder: 1,
-  //       item: '0225',       
-  //     },
-  //     {       
-  //       comments: "",
-  //       price: 3500.00,
-  //       qty: 2,
-  //       qtyorder: 1,
-  //       item: '0224',     
-  //     },
-  //     {   
-  //       comments: "",
-  //       price: 1500.00,
-  //       qty: 2,
-  //       qtyorder: 1,
-  //       item: '0226',    
-  //     },
-  //     {      
-  //       comments: "",
-  //       price: 2500.00,
-  //       qty: 1,
-  //       qtyorder: 1,
-  //       item: '0227',     
-  //     },      
-  //   ],
-  // };
-
+  
  
   useEffect(() => {
     (async () => {
@@ -84,7 +49,7 @@ export default function CartPage() {
   useEffect(() => {
     (async () => {
       try {
-        const newObjectArray = [];
+        // const newObjectArray = [];
         const orderArray = [];
 
         for (const record of product) {
@@ -108,12 +73,12 @@ export default function CartPage() {
           }
 
           if (newRecord.images) {
-            newObjectArray.push({
-              Producto: newRecord.name_extend,
-              Referencia: newRecord.ref,
-              Cantidad: newRecord.quantity,
-              Imagen: BASE_NAME + newRecord.images,
-            });
+            // newObjectArray.push({
+            //   Producto: newRecord.name_extend,
+            //   Referencia: newRecord.ref,
+            //   Cantidad: newRecord.quantity,
+            //   Imagen: BASE_NAME + newRecord.images,
+            // });
             orderArray.push({
               price: newRecord.price1,
               item: newRecord.codigo,
@@ -121,12 +86,12 @@ export default function CartPage() {
               qty_order: newRecord.quantity,
             });
           } else {
-            newObjectArray.push({
-              Producto: newRecord.name_extend,
-              Referencia: newRecord.ref,
-              Cantidad: newRecord.quantity,
-              Imagen: newRecord.image_alterna,
-            });
+            // newObjectArray.push({
+            //   Producto: newRecord.name_extend,
+            //   Referencia: newRecord.ref,
+            //   Cantidad: newRecord.quantity,
+            //   Imagen: newRecord.image_alterna,
+            // });
             orderArray.push({
               price: newRecord.price1,
               item: newRecord.codigo,
@@ -135,8 +100,8 @@ export default function CartPage() {
             });
           }
         }
-        const newArrayAsString = JSON.stringify(newObjectArray, null, 2);
-        setNewProduct(`Pedido No.  ${identificadorUnico} ${newArrayAsString}`);
+        // const newArrayAsString = JSON.stringify(newObjectArray, null, 2);
+        // setNewProduct(`Pedido No.  ${identificadorUnico} ${newArrayAsString}`);
         setFollow(identificadorUnico);
         setNewOrder(orderArray);
         

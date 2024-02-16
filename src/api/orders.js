@@ -10,7 +10,7 @@ export class Orders {
         cust: 1,
         tipo: 'PEDIDO EXTERNO',
         concept: follow,
-        orderdetData: data.orderdetData,
+        orderdetData: data,
       };
       console.log(orderData);
 

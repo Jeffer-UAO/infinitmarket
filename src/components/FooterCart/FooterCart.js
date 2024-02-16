@@ -44,21 +44,17 @@ export function FooterCart(props) {
     }
   }
 
-  async function enviarPedido() {
-    console.log("result");
-    const result = await addOrders(order, follow);
-    console.log(result);
-  }
-
+ 
   const generateWhatsAppLink = (phoneNumber, message) => {
     const url = `https://wa.me/${phoneNumber}`;
     const encodedMessage = encodeURIComponent(message);
     return `${url}?text=${encodedMessage}`;
   };
 
-  const addData = () => {
-    enviarPedido();   
-    const whatsappLink = generateWhatsAppLink(selectedItem, product);
+  const addData = async() => {
+    const response = await addOrders(order, follow);   
+    const newArrayAsString = JSON.stringify(response, null, 2);
+    const whatsappLink = generateWhatsAppLink(selectedItem, newArrayAsString);
 
     window.location.href = whatsappLink;
     toggleModal();
