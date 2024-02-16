@@ -56,12 +56,11 @@ export function FooterCart(props) {
   };
 
   const addData = () => {
-    console.log("gola");
+    enviarPedido();   
     const whatsappLink = generateWhatsAppLink(selectedItem, product);
 
     window.location.href = whatsappLink;
     toggleModal();
-    enviarPedido();
   };
 
   return (
