@@ -45,6 +45,7 @@ export function FooterCart(props) {
   }
 
   async function enviarPedido() {
+    console.log("result");
     const result = await addOrders(order, follow);
     console.log(result);
   }
