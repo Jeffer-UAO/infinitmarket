@@ -7,7 +7,7 @@ export const CartContext = createContext();
 
 export function CartProvider(props) {
   const { children } = props;
-  const [cart, setCart] = useState(null);
+  const [cart, setCart] = useState("");
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(false);
 

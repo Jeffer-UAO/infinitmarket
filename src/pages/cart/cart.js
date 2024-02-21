@@ -17,16 +17,16 @@ const productCtrl = new Products();
 
 export default function CartPage() {
 
-  const { cart } = useCart("");
+  const { cart } = useCart();
   const [product, setProduct] = useState("");
   const [load, setLoad] = useState(true);
   const hasProduct = size(product) > 0;
 
-  const [newProduct, setNewProduct] = useState("");
-  const [follow, setFollow] = useState("");
-  const [newOrder, setNewOrder] = useState([{ item: "", qtyorder: "", qty: "", price: ""}]);
+  // const [newProduct, setNewProduct] = useState("");
+  // const [follow, setFollow] = useState("");
+  const [newOrder, setNewOrder] = useState([{ item: "", qtyorder: 0, qty: 0, price: 0.00, order: 0}]);
 
-  const identificadorUnico = generarIdentificadorUnico();
+  // const identificadorUnico = generarIdentificadorUnico();
   
   
  
@@ -41,7 +41,7 @@ export default function CartPage() {
         setProduct(data);
         setLoad(false);
       } catch (error) {
-        console.error(error);
+        console.error(`Error: ${error}`);
       }
     })();
   }, [cart]);
@@ -83,7 +83,7 @@ export default function CartPage() {
               price: newRecord.price1,
               item: newRecord.codigo,
               qty: newRecord.quantity,
-              qty_order: newRecord.quantity,
+              qtyorder: newRecord.quantity,
             });
           } else {
             // newObjectArray.push({
@@ -96,17 +96,17 @@ export default function CartPage() {
               price: newRecord.price1,
               item: newRecord.codigo,
               qty: newRecord.quantity,
-              qty_order: newRecord.quantity,
+              qtyorder: newRecord.quantity,
             });
           }
         }
         // const newArrayAsString = JSON.stringify(newObjectArray, null, 2);
         // setNewProduct(`Pedido No.  ${identificadorUnico} ${newArrayAsString}`);
-        setFollow(identificadorUnico);
+        // setFollow(identificadorUnico);
         setNewOrder(orderArray);
         
       } catch (error) {
-        console.error(error);
+        console.error(`Error: ${error}`);
       }
     })();
   }, [product]);
@@ -126,24 +126,24 @@ export default function CartPage() {
           )}
         </>
       )}
-      <FooterCart product={newProduct} order={newOrder} follow={follow}  />
+      <FooterCart order={newOrder} />
     </BasicLayout>
   );
 }
 
-function generarIdentificadorUnico() {
-  const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const numeros = "0123456789";
+// function generarIdentificadorUnico() {
+//   const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//   const numeros = "0123456789";
 
-  let identificador = "";
+//   let identificador = "";
 
-  const letraAleatoria = letras[Math.floor(Math.random() * letras.length)];
-  identificador += letraAleatoria;
+//   const letraAleatoria = letras[Math.floor(Math.random() * letras.length)];
+//   identificador += letraAleatoria;
 
-  for (let i = 0; i < 4; i++) {
-    const numeroAleatorio = Math.floor(Math.random() * 10);
-    identificador += numeros[numeroAleatorio];
-  }
+//   for (let i = 0; i < 4; i++) {
+//     const numeroAleatorio = Math.floor(Math.random() * 10);
+//     identificador += numeros[numeroAleatorio];
+//   }
 
-  return identificador;
-}
+//   return identificador;
+// }

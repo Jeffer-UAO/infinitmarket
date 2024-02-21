@@ -19,7 +19,7 @@ import { BsWhatsapp } from "react-icons/bs";
 import styles from "./FooterCart.module.scss";
 
 export function FooterCart(props) {
-  const { product, order, follow } = props;
+  const { order } = props;
   const { deleteAllCart } = useCart();
   const { addOrders } = useOrder();
   const { items, selectedItem, handleItemClick } = useWhatsApp();
@@ -52,7 +52,8 @@ export function FooterCart(props) {
   };
 
   const addData = async() => {
-    const response = await addOrders(order, follow);   
+
+    const response = await addOrders(order);     
     const newArrayAsString = JSON.stringify(response, null, 2);
     const whatsappLink = generateWhatsAppLink(selectedItem, newArrayAsString);
 
@@ -99,7 +100,7 @@ export function FooterCart(props) {
           <Button outline size="sm" color="secondary" onClick={toggleModal}>
             Cancelar
           </Button>
-          <Button size="sm" color="success" onClick={addData}>
+          <Button size="sm" color="success" onClick={()=> addData()}>
             Aceptar
           </Button>
         </ModalFooter>
