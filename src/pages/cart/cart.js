@@ -24,10 +24,9 @@ export default function CartPage() {
 
   // const [newProduct, setNewProduct] = useState("");
   // const [follow, setFollow] = useState("");
-  const [newOrder, setNewOrder] = useState([{ item: "", qtyorder: 0, qty: 0, price: 0.00, order: 0}]);
+ 
 
   // const identificadorUnico = generarIdentificadorUnico();
-  
   
  
   useEffect(() => {
@@ -46,70 +45,8 @@ export default function CartPage() {
     })();
   }, [cart]);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        // const newObjectArray = [];
-        const orderArray = [];
-
-        for (const record of product) {
-          const newRecord = {};
-
-          for (const key in record) {
-            if (
-              Object.hasOwnProperty.call(record, key) &&
-              [
-                "name_extend",
-                "quantity",
-                "codigo",
-                "images",
-                "price1",
-                "image_alterna",
-                "ref",
-              ].includes(key)
-            ) {
-              newRecord[key] = record[key];
-            }
-          }
-
-          if (newRecord.images) {
-            // newObjectArray.push({
-            //   Producto: newRecord.name_extend,
-            //   Referencia: newRecord.ref,
-            //   Cantidad: newRecord.quantity,
-            //   Imagen: BASE_NAME + newRecord.images,
-            // });
-            orderArray.push({
-              price: newRecord.price1,
-              item: newRecord.codigo,
-              qty: newRecord.quantity,
-              qtyorder: newRecord.quantity,
-            });
-          } else {
-            // newObjectArray.push({
-            //   Producto: newRecord.name_extend,
-            //   Referencia: newRecord.ref,
-            //   Cantidad: newRecord.quantity,
-            //   Imagen: newRecord.image_alterna,
-            // });
-            orderArray.push({
-              price: newRecord.price1,
-              item: newRecord.codigo,
-              qty: newRecord.quantity,
-              qtyorder: newRecord.quantity,
-            });
-          }
-        }
-        // const newArrayAsString = JSON.stringify(newObjectArray, null, 2);
-        // setNewProduct(`Pedido No.  ${identificadorUnico} ${newArrayAsString}`);
-        // setFollow(identificadorUnico);
-        setNewOrder(orderArray);
-        
-      } catch (error) {
-        console.error(`Error: ${error}`);
-      }
-    })();
-  }, [product]);
+ 
+  
 
   return (
     <BasicLayout>
@@ -126,7 +63,7 @@ export default function CartPage() {
           )}
         </>
       )}
-      <FooterCart order={newOrder} />
+      <FooterCart products={product} />
     </BasicLayout>
   );
 }

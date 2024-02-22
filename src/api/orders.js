@@ -22,35 +22,31 @@ const data = [
 ];
 
 export class Orders {
-  async addOrdersApi(dataT) {
+  async addOrdersApi(dataProducts) {
+   console.log(dataProducts);
     try {
-      const url = `${BASE_API}/api/ordere/create_order/`; // Endpoint para crear un pedido
+      const url = `${BASE_API}/api/ordere/create_order/`;
 
       const orderData = {
         cust: 1,
         tipo: "PEDIDO EXTERNO",
         concept: "Venta de productos",
-        orderdetData: data,     
+        orderdetData: dataProducts,     
       };
 
       const params = {
         method: "POST",
         headers: {
           //   Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json", // Especifica el tipo de contenido como JSON
+          "Content-Type": "application/json", 
         },
         body: JSON.stringify(orderData),
       };
 
-      const response = await fetch(url, params); // Realiza la solicitud POST
-
-      if (!response.ok) {
-        throw new Error("Error al crear el pedido"); // Lanza un error si la solicitud no fue exitosa
-      }
-
+      const response = await fetch(url, params); 
       const result = await response.json(); 
       return result; 
-      
+
     } catch (error) {
       console.error("Error en la solicitud:", error); 
       throw error; 

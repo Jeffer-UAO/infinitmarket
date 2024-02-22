@@ -7,15 +7,16 @@ export function useOrder() {
   
 
 
-  const addOrders = async (dataOrder) => {  
+  const addOrders = async (dataProducts) => {  
       try {
       setLoading(true);
-      const orders = new Orders(); // Crear una instancia de la clase Orders
-      const response = await orders.addOrdersApi(dataOrder); // Enviamos los datos para ser ag     
+      const orders = new Orders();
+      const response = await orders.addOrdersApi(dataProducts);
       setLoading(false);
     //   setOrders([...orders, response.data]);
+      console.log(response);
       return response;
-      
+
     } catch (error) {
       setError(error);
       console.error('Error al crear el pedido:', error);

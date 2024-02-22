@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useCart } from "@/hooks/useCart";
 import { useOrder } from "@/hooks";
 import { useWhatsApp } from "@/hooks/useWhatsApp";
+import { BASE_NAME } from "@/config/constants";
 import {
   Button,
   Modal,
@@ -19,13 +20,83 @@ import { BsWhatsapp } from "react-icons/bs";
 import styles from "./FooterCart.module.scss";
 
 export function FooterCart(props) {
-  const { order } = props;
+  const { products } = props;
   const { deleteAllCart } = useCart();
   const { addOrders } = useOrder();
   const { items, selectedItem, handleItemClick } = useWhatsApp();
   const router = useRouter();
+  const [newOrder, setNewOrder] = useState([{ item: "", qty: 0, price: 0.00, comment: ""}]);
+  const [detailOrder, setDetailOrder] = useState("");
+  const [newArrayAsString, setNewArrayAsString] = useState("");
 
   const [isOpen, setIsOpen] = useState(false);
+
+
+
+  useEffect(() => {
+    (async () => {
+      try {
+         const newObjectArray = [];
+        const orderArray = [];
+
+        for (const record of products) {
+          const newRecord = {};
+
+          for (const key in record) {
+            if (
+              Object.hasOwnProperty.call(record, key) &&
+              [
+                "name_extend",
+                "quantity",
+                "codigo",
+                "images",
+                "price1",
+                "image_alterna",
+                "ref",
+              ].includes(key)
+            ) {
+              newRecord[key] = record[key];
+            }
+          }
+
+          orderArray.push({
+            price: newRecord.price1,
+            item: newRecord.codigo,
+            qty: newRecord.quantity,
+            comment: "",
+          });
+
+          if (newRecord.images) {
+            newObjectArray.push({
+              Producto: newRecord.name_extend,
+              Referencia: newRecord.ref,
+              Cantidad: newRecord.quantity,
+              Imagen: BASE_NAME + newRecord.images,
+            });            
+          } else {
+            newObjectArray.push({
+              Producto: newRecord.name_extend,
+              Referencia: newRecord.ref,
+              Cantidad: newRecord.quantity,
+              Imagen: newRecord.image_alterna,
+            });           
+          }
+        }
+         const arrayProducts = JSON.stringify(newObjectArray, null, 2);
+         setDetailOrder(arrayProducts);
+
+        // setNewProduct(`Pedido No.  ${identificadorUnico} ${newArrayAsString}`);
+        // setFollow(identificadorUnico);
+
+        setNewOrder(orderArray);
+        
+      } catch (error) {
+        console.error(`Error: ${error}`);
+      }
+    })();
+  }, [products]);
+
+
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
@@ -52,9 +123,15 @@ export function FooterCart(props) {
   };
 
   const addData = async() => {
+    
+    const response = await addOrders(newOrder);     
 
-    const response = await addOrders(order);     
-    const newArrayAsString = JSON.stringify(response, null, 2);
+    const headerOrder = JSON.stringify(response, null, 2);
+
+    setNewArrayAsString(`Pedido No.  ${headerOrder} ${detailOrder}`);
+
+
+    
     const whatsappLink = generateWhatsAppLink(selectedItem, newArrayAsString);
 
     window.location.href = whatsappLink;
