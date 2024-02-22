@@ -125,12 +125,9 @@ export function FooterCart(props) {
   const addData = async() => {
     
     const response = await addOrders(newOrder);     
+    const {number, total } = response;
 
-    const headerOrder = JSON.stringify(response, null, 2);
-
-    setNewArrayAsString(`Pedido No.  ${headerOrder} ${detailOrder}`);
-
-
+    setNewArrayAsString(`Pedido No. ${number} Total: ${total}  ${detailOrder}`);
     
     const whatsappLink = generateWhatsAppLink(selectedItem, newArrayAsString);
 
