@@ -120,23 +120,25 @@ export function FooterCart(props) {
   };
 
   const addData = async () => {
-    const response = await addOrders(newOrder);
+    if (selectedItem) {
+      const response = await addOrders(newOrder);
 
-    toast.warning(response.detail);
+      toast.warning(response.detail);
 
-    const { number, total } = response;
-    if (number) {
-      // alert("Tu pedido ha sido enviado con exito");
-      // setNewArrayAsString(`Pedido No. ${number} Total: $${total}  ${detailOrder}`);
-      const whatsappLink = generateWhatsAppLink(
-        selectedItem,
-        `Pedido No. ${number} Total: $${total}  ${detailOrder}`
-      );
-      window.location.href = whatsappLink;    
-      deleteAllCart();
+      const { number, total } = response;
+      if (number) {
+        // alert("Tu pedido ha sido enviado con exito");
+        // setNewArrayAsString(`Pedido No. ${number} Total: $${total}  ${detailOrder}`);
+        const whatsappLink = generateWhatsAppLink(
+          selectedItem,
+          `Pedido No. ${number} Total: $${total}  ${detailOrder}`
+        );
+        window.location.href = whatsappLink;
+        deleteAllCart();
+      }
+
+      toggleModal();
     }
-
-    toggleModal();
   };
 
   return (
