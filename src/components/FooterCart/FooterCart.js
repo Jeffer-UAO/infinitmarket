@@ -138,6 +138,8 @@ export function FooterCart(props) {
       }
 
       toggleModal();
+    }else{
+      toast.warning("Debe seleccionar una Linea de Whatsapp");
     }
   };
 
