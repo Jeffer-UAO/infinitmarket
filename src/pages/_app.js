@@ -88,7 +88,7 @@ export default function App(props) {
       <CartProvider>
         <Component {...pageProps} />
         <ToastContainer
-          autoClose={1000}
+          autoClose={5000}
           newestOnTop
           closeOnClick
           rtl={false}
