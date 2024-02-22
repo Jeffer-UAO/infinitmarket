@@ -131,6 +131,7 @@ export function FooterCart(props) {
       // setNewArrayAsString(`Pedido No. ${number} Total: $${total}  ${detailOrder}`);
       const whatsappLink = generateWhatsAppLink(selectedItem, `Pedido No. ${number} Total: $${total}  ${detailOrder}`);
       window.location.href = whatsappLink;
+      handleClick("/")
       deleteAllCart();
       
     }
